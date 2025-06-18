@@ -68,5 +68,4 @@ public class BinaryTree {
             printInOrdenRec(node.getRight());
         }
     }
-
 }
