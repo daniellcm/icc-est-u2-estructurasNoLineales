@@ -1,31 +1,32 @@
 package materia.controllers;
+
 import materia.models.Node;
 
 public class BinaryTree {
-    
+
     private Node root;
 
     public BinaryTree() {
         this.root = null;
     }
 
-    public void insert(int value) { //17
-                 //N(50), 17
+    public void insert(int value) { // 17
+        // N(50), 17
         root = insertRec(root, value);
     }
 
-    private Node insertRec(Node padre, int value){
-                //N(50), 17 
-        if(padre == null) {
+    private Node insertRec(Node padre, int value) {
+        // N(50), 17
+        if (padre == null) {
             return new Node(value);
-        }   
+        }
 
         if (value <= padre.getValue()) {
-            //Me voy a la izquierda
+            // Me voy a la izquierda
             Node newNode = insertRec(padre.getLeft(), value);
             padre.setLeft(newNode);
-        } else if (value > padre.getValue()){
-            //Me voy a la derecha
+        } else if (value > padre.getValue()) {
+            // Me voy a la derecha
             padre.setRight(insertRec(padre.getRight(), value));
         }
 
@@ -38,7 +39,7 @@ public class BinaryTree {
 
     private void imprimirArbolRec(Node node) {
         if (node != null) {
-            
+
             System.out.print(node.getValue() + ",");
             imprimirArbolRec(node.getLeft());
             imprimirArbolRec(node.getRight());
@@ -67,5 +68,26 @@ public class BinaryTree {
             System.out.print(node.getValue() + ",");
             printInOrdenRec(node.getRight());
         }
+    }
+
+    public boolean findeValue(int value) {
+        return findeValueRec(root, value);
+    }
+
+    private boolean findeValueRec(Node node, int value) {
+        if (node == null) {
+        return false;
+        }
+        if (node.getValue() == value) {
+            return true;
+        }
+
+        if (findeValueRec(node.getLeft(), value)) {
+            return true;
+        }
+        if (findeValueRec(node.getRight(), value)) {
+            return true;
+        }
+        return false;
     }
 }
