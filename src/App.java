@@ -30,5 +30,33 @@ public class App {
         } else {
             System.out.println("No encontró el valor 77 en el árbol.");
         }
+
+        ab.insert(15);
+        System.out.println("Altura es = " + ab.getAltura() + "\n");
+
+        System.out.println("Arbol InOrder");
+        ab.printInOrden();
+        System.out.println();
+
+        System.out.println("Arbol InOrder con alturas");
+        ab.printInOrdenConAltura();
+        System.out.println();
+
+        System.out.println("Arbol InOrder con factor de equilibrio");
+        ab.printInOrdenConBalance();
+        System.out.println();
+
+        System.out.println("Arbol esta equilibrado = " + ab.estaBalanceado());
+
+        System.out.println("Existe el nodo 15= " + ab.findeValue(15));
+        System.out.println("Agregamos valor = 15");
+        ab.insert(15);
+        System.out.println("Arbol esta equilibrado = " + ab.estaBalanceado());
+
+        System.out.println("\nArbol InOrder con factor de equilibrio");
+        ab.printInOrdenConBalance();
+
+        System.out.println("\nNodos desequilibrados:");
+        ab.printNodosDesequilibrados();
     }
 }
