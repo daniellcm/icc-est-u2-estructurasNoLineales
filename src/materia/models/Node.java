@@ -10,7 +10,7 @@ public class Node {
         this.value = value;
         this.left = null;
         this.right = null;
-        this.height = 1; // por defecto
+        this.height = 1;
     }
 
     @Override
